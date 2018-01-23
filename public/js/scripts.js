@@ -1,0 +1,1 @@
+$("#alert-flash-notification").fadeOut(5000);

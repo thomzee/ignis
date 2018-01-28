@@ -95,11 +95,11 @@ class Migration_User_management extends CI_Migration {
 
         $data = array(
             'parent_id'     => $user_management,
-            'name'          => 'User',
-            'slug'          => toSlug('User'),
+            'name'          => 'Users',
+            'slug'          => toSlug('Users'),
             'icon'          => 'fa fa-chevron-right',
-            'controller'    => 'User',
-            'model'         => 'User_model',
+            'controller'    => 'Users',
+            'model'         => 'Users_model',
             'sequence'      => 1,
             'created_at'    => date('Y-m-d H:i:s'),
         );

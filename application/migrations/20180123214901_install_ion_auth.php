@@ -61,12 +61,14 @@ class Migration_Install_ion_auth extends CI_Migration {
 			),
 			'ip_address' => array(
 				'type'       => 'VARCHAR',
-				'constraint' => '45'
+				'constraint' => '45',
+                'null'       => TRUE
 			),
 			'username' => array(
 				'type'       => 'VARCHAR',
 				'constraint' => '100',
-			),
+                'null'       => TRUE
+            ),
 			'password' => array(
 				'type'       => 'VARCHAR',
 				'constraint' => '80',
@@ -99,19 +101,19 @@ class Migration_Install_ion_auth extends CI_Migration {
 			'remember_code' => array(
 				'type'       => 'VARCHAR',
 				'constraint' => '40',
-				'null'       => TRUE
-			),
-			'created_on' => array(
-				'type'       => 'INT',
-				'constraint' => '11',
-				'unsigned'   => TRUE,
-			),
-			'last_login' => array(
-				'type'       => 'INT',
-				'constraint' => '11',
-				'unsigned'   => TRUE,
-				'null'       => TRUE
-			),
+				'null'       => TRUE,
+            ),
+//			'last_login' => array(
+//				'type'       => 'INT',
+//				'constraint' => '11',
+//				'unsigned'   => TRUE,
+//				'null'       => TRUE
+//			),
+            'last_login' => array(
+                'type'       => 'TIMESTAMP',
+                'constraint' => '6',
+                'null'       => TRUE
+            ),
 			'active' => array(
 				'type'       => 'TINYINT',
 				'constraint' => '1',
@@ -137,7 +139,22 @@ class Migration_Install_ion_auth extends CI_Migration {
 				'type'       => 'VARCHAR',
 				'constraint' => '20',
 				'null'       => TRUE
-			)
+			),
+            'created_at' => array(
+                'type'       => 'TIMESTAMP',
+                'constraint' => '6',
+                'null'       => TRUE
+            ),
+            'updated_at' => array(
+                'type'       => 'TIMESTAMP',
+                'constraint' => '6',
+                'null'       => TRUE
+            ),
+            'deleted_at' => array(
+                'type'       => 'TIMESTAMP',
+                'constraint' => '6',
+                'null'       => TRUE
+            )
 
 		));
 		$this->dbforge->add_key('id', TRUE);
@@ -152,8 +169,8 @@ class Migration_Install_ion_auth extends CI_Migration {
 			'email'                   => 'admin@admin.com',
 			'activation_code'         => '',
 			'forgotten_password_code' => NULL,
-			'created_on'              => '1268889823',
-			'last_login'              => '1268889823',
+			'created_at'              => date("Y-m-d H:i:s"),
+			'last_login'              => date("Y-m-d H:i:s"),
 			'active'                  => '1',
 			'first_name'              => 'Admin',
 			'last_name'               => 'istrator',

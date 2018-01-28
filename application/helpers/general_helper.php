@@ -27,3 +27,40 @@ if ( ! function_exists('toSlug')) {
         return $text;
     }
 }
+
+if (! function_exists('print_yes_no')) {
+    function print_yes_no($number, $yes = 1, $no = 0)
+    {
+        if ($number == $yes) {
+            return '<span class="label label-success">'.lang('yes').'</span>';
+        } elseif ($number == $no) {
+            return '<span class="label label-danger">'.lang('no').'</span>';
+        }
+    }
+}
+
+if (! function_exists('numrows')) {
+    function numrows($data, $index = 1, $name = 'no')
+    {
+        if (is_object($data)) {
+            foreach ($data as $key => $value) {
+                $value->{$name} = $index;
+                $index++;
+            }
+        } else
+            if (is_array($data)) {
+                foreach ($data as $key => $value) {
+                    $data[$key]->$name = $index;
+                    $index++;
+                }
+            }
+        return $data;
+    }
+}
+
+if (! function_exists('timestamp')) {
+    function timestamp()
+    {
+        return date('Y-m-d H:i:s');
+    }
+}

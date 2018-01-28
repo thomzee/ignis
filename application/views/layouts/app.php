@@ -40,19 +40,18 @@
         <?php echo @$_footer; ?>
     </footer>
 
-    <!-- Control Sidebar -->
-    <aside class="control-sidebar control-sidebar-dark">
-        <!-- right -->
-        <?php echo @$_right; ?>
-    </aside>
     <!-- /.control-sidebar -->
     <!-- Add the sidebar's background. This div must be placed
          immediately after the control sidebar -->
     <div class="control-sidebar-bg"></div>
+    <!-- modals -->
+    <?php echo @$_modals_action; ?>
+    <?php echo @$_modals_form; ?>
 </div>
 <!-- ./wrapper -->
 
 <!-- scripts -->
 <?php echo @$_scripts; ?>
+<?php echo @$_custom_scripts; ?>
 </body>
 </html>

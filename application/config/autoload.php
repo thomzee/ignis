@@ -58,7 +58,7 @@ $autoload['packages'] = array();
 |
 |	$autoload['libraries'] = array('user_agent' => 'ua');
 */
-$autoload['libraries'] = array('Template', 'form_validation', 'session', 'MenuLib', 'database');
+$autoload['libraries'] = array('Template', 'form_validation', 'session', 'MenuLib', 'database', 'Ion_auth', 'Datatables', 'Modal');
 
 /*
 | -------------------------------------------------------------------
@@ -79,7 +79,7 @@ $autoload['libraries'] = array('Template', 'form_validation', 'session', 'MenuLi
 |	$autoload['drivers'] = array('cache' => 'cch');
 |
 */
-$autoload['drivers'] = array();
+$autoload['drivers'] = array('session');
 
 /*
 | -------------------------------------------------------------------
@@ -117,7 +117,7 @@ $autoload['config'] = array();
 | "codeigniter_lang.php" would be referenced as array('codeigniter');
 |
 */
-$autoload['language'] = array('label');
+$autoload['language'] = array('label', 'icon', 'form', 'system', 'button');
 
 /*
 | -------------------------------------------------------------------

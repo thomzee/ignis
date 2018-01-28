@@ -116,7 +116,7 @@ class MenuLib
             }
 
             if ($value['slug'] != null) {
-                $html .= '<a href="' . base_url() . '/' . $value['slug'] . '">';
+                $html .= '<a href="' . base_url() . $value['slug'] . '">';
             } else {
                 $html .= '<a href="javascript:void(0)">';
             }

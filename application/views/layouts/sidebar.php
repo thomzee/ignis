@@ -7,7 +7,7 @@
                  class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-            <p>Alexander Pierce</p>
+            <p><?php echo $this->ion_auth->user()->row()->first_name . ' ' .$this->ion_auth->user()->row()->last_name ?></p>
             <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
     </div>

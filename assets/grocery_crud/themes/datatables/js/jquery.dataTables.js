@@ -1103,7 +1103,7 @@
 				_fnDetectHeader( oSettings.aoHeader, oSettings.nTHead );
 			}
 			
-			/* ARIA role for the rows */	
+			/* ARIA group for the rows */	
 			$(oSettings.nTHead).children('tr').attr('role', 'row');
 			
 			/* Add the extra markup needed by jQuery UI's themes */
@@ -1509,7 +1509,7 @@
 			/* 
 			 * All DataTables are wrapped in a div
 			 */
-			oSettings.nTableWrapper = $('<div id="'+oSettings.sTableId+'_wrapper" class="'+oSettings.oClasses.sWrapper+'" role="grid"></div>')[0];
+			oSettings.nTableWrapper = $('<div id="'+oSettings.sTableId+'_wrapper" class="'+oSettings.oClasses.sWrapper+'" group="grid"></div>')[0];
 			oSettings.nTableReinsertBefore = oSettings.nTable.nextSibling;
 		
 			/* Track where we want to insert the option */
@@ -11343,11 +11343,11 @@
 				};
 	
 				var sAppend = (!oSettings.bJUI) ?
-					'<a class="'+oSettings.oClasses.sPagePrevDisabled+'" tabindex="'+oSettings.iTabIndex+'" role="button">'+oLang.sPrevious+'</a>'+
-					'<a class="'+oSettings.oClasses.sPageNextDisabled+'" tabindex="'+oSettings.iTabIndex+'" role="button">'+oLang.sNext+'</a>'
+					'<a class="'+oSettings.oClasses.sPagePrevDisabled+'" tabindex="'+oSettings.iTabIndex+'" group="button">'+oLang.sPrevious+'</a>'+
+					'<a class="'+oSettings.oClasses.sPageNextDisabled+'" tabindex="'+oSettings.iTabIndex+'" group="button">'+oLang.sNext+'</a>'
 					:
-					'<a class="'+oSettings.oClasses.sPagePrevDisabled+'" tabindex="'+oSettings.iTabIndex+'" role="button"><span class="'+oSettings.oClasses.sPageJUIPrev+'"></span></a>'+
-					'<a class="'+oSettings.oClasses.sPageNextDisabled+'" tabindex="'+oSettings.iTabIndex+'" role="button"><span class="'+oSettings.oClasses.sPageJUINext+'"></span></a>';
+					'<a class="'+oSettings.oClasses.sPagePrevDisabled+'" tabindex="'+oSettings.iTabIndex+'" group="button"><span class="'+oSettings.oClasses.sPageJUIPrev+'"></span></a>'+
+					'<a class="'+oSettings.oClasses.sPageNextDisabled+'" tabindex="'+oSettings.iTabIndex+'" group="button"><span class="'+oSettings.oClasses.sPageJUINext+'"></span></a>';
 				$(nPaging).append( sAppend );
 				
 				var els = $('a', nPaging);

@@ -21,7 +21,7 @@ class Datatables extends CI_Model {
         /* PREPARE DATA */
         $sql = $this->sql;
         $db_result = $sql['result'];
-        $db_query = $sql['queries']->queries[1];
+        $db_query = $sql['queries']->last_query();
         $db_columns = $this->columns;
         $db_rows_count = $db_result->num_rows();
 

@@ -1,6 +1,6 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Migration_User_management extends CI_Migration {
+class Migration_Menu extends CI_Migration {
     public function up()
     {
         /*===================== menus =====================*/
@@ -65,46 +65,6 @@ class Migration_User_management extends CI_Migration {
 
         $this->dbforge->add_key('id', TRUE);
         $this->dbforge->create_table('menus');
-
-        // Dumping data for table 'menus'
-        $data = array(
-            'parent_id'     => null,
-            'name'          => 'Dashboard',
-            'slug'          => toSlug('Dashboard'),
-            'icon'          => 'fa fa-chevron-right',
-            'controller'    => 'Dashboard',
-            'model'         => 'Dashboard_model',
-            'sequence'      => 1,
-            'created_at'    => date('Y-m-d H:i:s'),
-        );
-        $this->db->insert('menus', $data);
-        $user = $this->db->insert_id();
-
-        $data = array(
-            'parent_id'     => NULL,
-            'name'          => 'User Management',
-            'slug'          => null,
-            'icon'          => 'fa fa-folder',
-            'controller'    => NULL,
-            'model'         => NULL,
-            'sequence'      => 1,
-            'created_at'    => date('Y-m-d H:i:s'),
-        );
-        $this->db->insert('menus', $data);
-        $user_management = $this->db->insert_id();
-
-        $data = array(
-            'parent_id'     => $user_management,
-            'name'          => 'Users',
-            'slug'          => toSlug('Users'),
-            'icon'          => 'fa fa-chevron-right',
-            'controller'    => 'Users',
-            'model'         => 'Users_model',
-            'sequence'      => 1,
-            'created_at'    => date('Y-m-d H:i:s'),
-        );
-        $this->db->insert('menus', $data);
-        $user = $this->db->insert_id();
     }
 
     public function down() {

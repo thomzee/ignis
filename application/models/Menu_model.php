@@ -79,4 +79,36 @@ class Menu_model extends CI_Model
 
         return $query->result();
     }
+
+    public function seederAccess(){
+        $this->db->select('id, slug');
+        $this->db->from($this->table);
+        $notNUll = ' is NOT NULL';
+        $this->db->where('slug' . $notNUll);
+        $this->db->where('controller' . $notNUll);
+        $this->db->where('model' . $notNUll);
+        $query = $this->db->get();
+
+        return $query->result();
+    }
+
+    public function joinGroupMenu(){
+        $groups_menus = 'groups_menus';
+
+        $this->db->select('*');
+        $this->db->from($this->table);
+        $this->db->join($groups_menus, $groups_menus.'.menu_id = '.$this->table.'.id', 'left');
+        $query = $this->db->get();
+
+        return $query->result();
+    }
+
+    public function roleLib(){
+        $this->db->select('*');
+        $this->db->from($this->table);
+        $this->db->order_by('sequence', 'asc');
+        $query = $this->db->get();
+
+        return $query->result_array();
+    }
 }

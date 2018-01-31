@@ -45,9 +45,9 @@ class Users extends CI_Controller
                 }
 
                 $action = null;
-                $action .= '<a data-href="' . $this->data['slug'] . '/show/' . $row->id . '" class="btn btn-xs btn-success btn-modal-action" title="' . lang('detail') . '" data-title="' . sprintf(lang('form_detail'), $this->data['menu']) . '" data-icon="fa fa-search fa-fw" data-background="modal-primary">' . lang('icon_detail') . '</a> &nbsp;';
-                $action .= '<a data-href="' . $this->data['slug'] . '/edit/' . $row->id . '" class="btn btn-xs btn-primary btn-modal-form" title="' . lang('edit') . '" data-title="' . sprintf(lang('form_edit'), $this->data['menu']) . '" data-icon="fa fa-edit fa-fw" data-background="modal-primary">' . lang('icon_edit') . '</a> &nbsp;';
-                $action .= '<a data-href="' . $this->data['slug'] . '/delete/' . $row->id . '" class="btn btn-xs btn-danger btn-modal-action" title="' . lang('delete') . '" data-title="' . sprintf(lang('form_delete'), $this->data['menu']) . '" data-icon="fa fa-trash-o fa-fw" data-background="modal-danger">' . lang('icon_delete') . '</a>';
+                $action .= $this->securitylib->check_access('detail', $this->data['slug']) ? '<a data-href="' . $this->data['slug'] . '/show/' . $row->id . '" class="btn btn-xs btn-success btn-modal-action" title="' . lang('detail') . '" data-title="' . sprintf(lang('form_detail'), $this->data['menu']) . '" data-icon="fa fa-search fa-fw" data-background="modal-primary">' . lang('icon_detail') . '</a> &nbsp;' : '';
+                $action .= $this->securitylib->check_access('update', $this->data['slug']) ? '<a data-href="' . $this->data['slug'] . '/edit/' . $row->id . '" class="btn btn-xs btn-primary btn-modal-form" title="' . lang('edit') . '" data-title="' . sprintf(lang('form_edit'), $this->data['menu']) . '" data-icon="fa fa-edit fa-fw" data-background="modal-primary">' . lang('icon_edit') . '</a> &nbsp;' : '';
+                $action .= $this->securitylib->check_access('delete', $this->data['slug']) ? '<a data-href="' . $this->data['slug'] . '/delete/' . $row->id . '" class="btn btn-xs btn-danger btn-modal-action" title="' . lang('delete') . '" data-title="' . sprintf(lang('form_delete'), $this->data['menu']) . '" data-icon="fa fa-trash-o fa-fw" data-background="modal-danger">' . lang('icon_delete') . '</a>' : '';
                 $rows['action'] = $action;
 
                 $rows['no'] = $i;

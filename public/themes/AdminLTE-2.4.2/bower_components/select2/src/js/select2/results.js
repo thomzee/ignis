@@ -14,7 +14,7 @@ define([
 
   Results.prototype.render = function () {
     var $results = $(
-      '<ul class="select2-results__options" role="tree"></ul>'
+      '<ul class="select2-results__options" group="tree"></ul>'
     );
 
     if (this.options.get('multiple')) {
@@ -37,7 +37,7 @@ define([
     this.hideLoading();
 
     var $message = $(
-      '<li role="treeitem" aria-live="assertive"' +
+      '<li group="treeitem" aria-live="assertive"' +
       ' class="select2-results__option"></li>'
     );
 

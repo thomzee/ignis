@@ -4,7 +4,7 @@
             processing: true,
             serverSide: true,
             ajax: {
-                url: "<?php echo base_url('users/datatables');?>",
+                url: "<?php echo base_url($slug . '/datatables');?>",
                 type: "POST"
             },
             columns: [

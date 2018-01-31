@@ -363,7 +363,7 @@ return $.widget( "ui.menu", {
 
 		this.active = item.first();
 		focused = this.active.addClass( "ui-state-focus" ).removeClass( "ui-state-active" );
-		// Only update aria-activedescendant if there's a role
+		// Only update aria-activedescendant if there's a group
 		// otherwise we assume focus is managed elsewhere
 		if ( this.options.role ) {
 			this.element.attr( "aria-activedescendant", focused.attr( "id" ) );

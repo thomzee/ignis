@@ -104,12 +104,11 @@ class MenuLib
                 $html .= '<li class="treeview' . (in_array($value['id'], $this->treeSidebarIds($menu)) ? ' active' : '') . '">';
             } else {
                 if ($value['slug'] != null && $value['controller'] != null && $value['model'] != null) {
-//                    $index = config('access.menu.'.$value['slug'].'.index');
-//                    if (check_access($index, $value['slug'])) {
+                    if ($this->_ci->securitylib->check_access('index', $value['slug'])) {
                     $html .= '<li' . (in_array($value['id'], $this->treeSidebarIds($menu)) ? ' class="active"' : '') . '>';
-//                    } else {
-//                        $html .= '<li class="hidden'.(in_array($value['id'], $this->treeSidebarIds($menu)) ? ' active' : '').'">';
-//                    }
+                    } else {
+                        $html .= '<li class="hidden'.(in_array($value['id'], $this->treeSidebarIds($menu)) ? ' active' : '').'">';
+                    }
                 } else {
                     $html .= '<li class="hidden' . (in_array($value['id'], $this->treeSidebarIds($menu)) ? ' active' : '') . '">';
                 }

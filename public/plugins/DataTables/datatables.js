@@ -3243,7 +3243,7 @@
 			_fnDetectHeader( oSettings.aoHeader, thead );
 		}
 		
-		/* ARIA role for the rows */
+		/* ARIA group for the rows */
 	 	$(thead).find('>tr').attr('role', 'row');
 	
 		/* Deal with the footer - add classes if required */
@@ -5040,7 +5040,7 @@
 	{
 		var table = $(settings.nTable);
 	
-		// Add the ARIA grid role to the table
+		// Add the ARIA grid group to the table
 		table.attr( 'role', 'grid' );
 	
 		// Scrolling from here on in

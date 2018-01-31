@@ -4,6 +4,8 @@ class Migration_Ci_tables extends CI_Migration {
     public function up()
     {
         /*===================== ci_sessions (postgre) =====================*/
+        $drop = 'DROP TABLE IF EXISTS "ci_sessions"';
+        $this->db->query ( $drop );
         $raw = 'CREATE TABLE "ci_sessions" (';
             $raw .= '"id" varchar(128) NOT NULL,';
             $raw .= '"ip_address" varchar(45) NOT NULL,';

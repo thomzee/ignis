@@ -152,7 +152,7 @@
           ariaID = _iCheck + '-' + Math.random().toString(36).replace('0.', ''),
 
           // Parent & helper
-          parent = '<div class="' + className + '" ' + (aria ? 'role="' + node[_type] + '" ' : ''),
+          parent = '<div class="' + className + '" ' + (aria ? 'group="' + node[_type] + '" ' : ''),
           helper;
 
         // Set ARIA "labelledby"

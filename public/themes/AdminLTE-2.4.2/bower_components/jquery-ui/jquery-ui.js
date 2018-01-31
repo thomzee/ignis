@@ -2475,7 +2475,7 @@ var menu = $.widget( "ui.menu", {
 
 		this.active = item.first();
 		focused = this.active.addClass( "ui-state-focus" ).removeClass( "ui-state-active" );
-		// Only update aria-activedescendant if there's a role
+		// Only update aria-activedescendant if there's a group
 		// otherwise we assume focus is managed elsewhere
 		if ( this.options.role ) {
 			this.element.attr( "aria-activedescendant", focused.attr( "id" ) );
@@ -13704,7 +13704,7 @@ var sortable = $.widget("ui.sortable", $.ui.mouse, {
 		//Cache the former DOM position
 		this.domPosition = { prev: this.currentItem.prev()[0], parent: this.currentItem.parent()[0] };
 
-		//If the helper is not the original, hide the original so it's not playing any role during the drag, won't cause anything bad this way
+		//If the helper is not the original, hide the original so it's not playing any group during the drag, won't cause anything bad this way
 		if(this.helper[0] !== this.currentItem[0]) {
 			this.currentItem.hide();
 		}

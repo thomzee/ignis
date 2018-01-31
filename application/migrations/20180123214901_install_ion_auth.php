@@ -30,7 +30,23 @@ class Migration_Install_ion_auth extends CI_Migration {
 			'description' => array(
 				'type'       => 'VARCHAR',
 				'constraint' => '100',
-			)
+                'null'       => TRUE
+			),
+            'created_at' => array(
+                'type'       => 'TIMESTAMP',
+                'constraint' => '6',
+                'null'       => TRUE
+            ),
+            'updated_at' => array(
+                'type'       => 'TIMESTAMP',
+                'constraint' => '6',
+                'null'       => TRUE
+            ),
+            'deleted_at' => array(
+                'type'       => 'TIMESTAMP',
+                'constraint' => '6',
+                'null'       => TRUE
+            )
 		));
 		$this->dbforge->add_key('id', TRUE);
 		$this->dbforge->create_table($this->tables['groups']);
@@ -39,12 +55,14 @@ class Migration_Install_ion_auth extends CI_Migration {
 		$data = array(
 			array(
 				'name'        => 'admin',
-				'description' => 'Administrator'
+				'description' => 'Administrator',
+				'created_at' => timestamp()
 			),
 			array(
 				'name'        => 'members',
-				'description' => 'General User'
-			)
+				'description' => 'General User',
+                'created_at' => timestamp()
+            )
 		);
 		$this->db->insert_batch($this->tables['groups'], $data);
 
@@ -103,12 +121,6 @@ class Migration_Install_ion_auth extends CI_Migration {
 				'constraint' => '40',
 				'null'       => TRUE,
             ),
-//			'last_login' => array(
-//				'type'       => 'INT',
-//				'constraint' => '11',
-//				'unsigned'   => TRUE,
-//				'null'       => TRUE
-//			),
             'last_login' => array(
                 'type'       => 'TIMESTAMP',
                 'constraint' => '6',
@@ -169,8 +181,8 @@ class Migration_Install_ion_auth extends CI_Migration {
 			'email'                   => 'admin@admin.com',
 			'activation_code'         => '',
 			'forgotten_password_code' => NULL,
-			'created_at'              => date("Y-m-d H:i:s"),
-			'last_login'              => date("Y-m-d H:i:s"),
+			'created_at'              => timestamp(),
+			'last_login'              => timestamp(),
 			'active'                  => '1',
 			'first_name'              => 'Admin',
 			'last_name'               => 'istrator',
@@ -249,6 +261,28 @@ class Migration_Install_ion_auth extends CI_Migration {
 		$this->dbforge->add_key('id', TRUE);
 		$this->dbforge->create_table($this->tables['login_attempts']);
 
+        // Drop table 'groups_menus' if it exists
+        $this->dbforge->drop_table($this->tables['groups_menus'], TRUE);
+
+        // Table structure for table 'groups_menus'
+        $this->dbforge->add_field(array(
+            'menu_id' => array(
+                'type'       => 'MEDIUMINT',
+                'constraint' => '8',
+                'unsigned'   => TRUE
+            ),
+            'group_id' => array(
+                'type'       => 'MEDIUMINT',
+                'constraint' => '8',
+                'unsigned'   => TRUE
+            ),
+            'access' => array(
+                'type'       => 'VARCHAR',
+                'constraint' => '255'
+            )
+        ));
+        $this->dbforge->add_key('id', TRUE);
+        $this->dbforge->create_table($this->tables['groups_menus']);
 	}
 
 	public function down() {
@@ -256,5 +290,6 @@ class Migration_Install_ion_auth extends CI_Migration {
 		$this->dbforge->drop_table($this->tables['groups'], TRUE);
 		$this->dbforge->drop_table($this->tables['users_groups'], TRUE);
 		$this->dbforge->drop_table($this->tables['login_attempts'], TRUE);
+		$this->dbforge->drop_table($this->tables['groups_menus'], TRUE);
 	}
 }

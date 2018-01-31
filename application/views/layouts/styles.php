@@ -35,10 +35,10 @@
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
 
-<link rel="stylesheet" href="<?php base_url(); ?>/public/themes/AdminLTE-2.4.2/plugins/iCheck/square/blue.css">
+<link rel="stylesheet" href="<?php echo base_url(); ?>/public/themes/AdminLTE-2.4.2/plugins/iCheck/square/blue.css">
 <!-- select2 -->
-<link rel="stylesheet"href="<?php base_url(); ?>/public/plugins/select2/css/select2.min.css">
+<link rel="stylesheet" href="<?php echo base_url(); ?>/public/plugins/select2/css/select2.min.css">
 <!-- DataTables -->
-<link rel="stylesheet"href="<?php echo base_url(); ?>public/plugins/DataTables/datatables.min.css">
+<link rel="stylesheet" href="<?php echo base_url(); ?>public/plugins/DataTables/datatables.min.css">
 <!-- Custom CSS -->
-<link rel="stylesheet"href="<?php echo base_url(); ?>public/css/styles.css">
+<link rel="stylesheet" href="<?php echo base_url(); ?>public/css/styles.css">
